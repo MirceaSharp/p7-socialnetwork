@@ -2,12 +2,14 @@
 
 
 <script setup>
+
 import { ref, onMounted, computed, watch } from 'vue'
 
 const todos = ref([])
 const name = ref('')
 
 const input_content = ref('')
+const image = Image
 const input_category = ref(null)
 
 const todos_asc = computed(() => todos.value.sort((a,b) =>{
@@ -32,6 +34,7 @@ const addTodo = () => {
 	todos.value.push({
 		content: input_content.value,
 		category: input_category.value,
+        image: image.value,
 		done: false,
 		editable: false,
 		createdAt: new Date().getTime()
@@ -65,19 +68,11 @@ onMounted(() => {
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
     <!-- STYLESHEET -->
     <link rel="stylesheet" href="./posts.css">
-
-
-  
-  
+ 
   
 </head>
 <body>
-
-  
-  <!-- built files will be auto injected -->
- 
-
-
+    
   <nav>
     <div class="container">
         <h2 class="log">
@@ -90,7 +85,7 @@ onMounted(() => {
         <div class="create">
             <label class="btn btn-primary" for="create-post">Create</label>
             <div class="profile-photo">
-                <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                <img src="./profile-6.jpg">
             </div>
         </div>
     </div>
@@ -103,7 +98,7 @@ onMounted(() => {
         <div class="left">
             <a class="profile">
                 <div class="profile-photo">
-                    <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                    <img src="./profile-6.jpg">
                 </div>
                 <div class="handle">
                     <h4>Diana Ayi</h4>
@@ -127,7 +122,7 @@ onMounted(() => {
                     <div class="notifications-popup">
                         <div>
                             <div class="profile-photo">
-                                <img src="/Projects/P7final/frontend/public/images/profile-2.jpg">
+                                <img src="./profile-6.jpg">
                             </div>
                             <div class="notification-body">
                                 <b>Keke Benjamin</b> accepted your friend request
@@ -136,7 +131,7 @@ onMounted(() => {
                         </div>
                         <div>
                             <div class="profile-photo">
-                                <img src="/Projects/P7final/frontend/public/images/profile-3.jpg">
+                                <img src="./profile-3.jpg">
                             </div>
                             <div class="notification-body">
                                 <b>John Doe</b> commented on your post
@@ -145,7 +140,7 @@ onMounted(() => {
                         </div>
                         <div>
                             <div class="profile-photo">
-                                <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                                <img src="./profile-5.jpg">
                             </div>
                             <div class="notification-body">
                                 <b>Mary Oppong</b> and <b>283 others </b> liked your post
@@ -154,7 +149,7 @@ onMounted(() => {
                         </div>
                         <div>
                             <div class="profile-photo">
-                                <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                                <img src="./profile-2.jpg">
                             </div>
                             <div class="notification-body">
                                 <b>Doris Y. Lartey</b> commented on a post you are tagged in
@@ -163,7 +158,7 @@ onMounted(() => {
                         </div>
                         <div>
                             <div class="profile-photo">
-                                <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                                <img src="./profile-1.jpg">
                             </div>
                             <div class="notification-body">
                                 <b>Donald Trump</b> commented on a post you are tagged in
@@ -172,7 +167,7 @@ onMounted(() => {
                         </div>
                         <div>
                             <div class="profile-photo">
-                                <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                                <img src="./profile-2.jpg">
                             </div>
                             <div class="notification-body">
                                 <b>jane Doe</b> commented on your post
@@ -183,7 +178,7 @@ onMounted(() => {
                     <!-------------------- END NOTIFICATION POPUP ---------------->
                 </a>
                 <a class="menu-item" id="messages-notification">
-                    <span><i class="uil uil-envelope-alt"><small class="notification-count">6</small></i></span><h3>Messagse</h3>
+                    <span><i class="uil uil-envelope-alt"><small class="notification-count">6</small></i></span><h3>Messages</h3>
                 </a>
                 <a class="menu-item">
                     <span><i class="uil uil-bookmark"></i></span><h3>Bookmarks</h3>
@@ -211,37 +206,37 @@ onMounted(() => {
             <div class="stories">
                 <div class="story">
                     <div class="profile-photo">
-                        <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                        <img src="./feed-1.jpg">
                     </div>
                     <p class="name">Your Story</p>
                 </div>
                 <div class="story">
                     <div class="profile-photo">
-                        <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                        <img src="./feed-2.jpg">
                     </div>
                     <p class="name">Lilla James</p>
                 </div>
                 <div class="story">
                     <div class="profile-photo">
-                        <img src="/Projects/P7final/frontend/public/images/profile-2.jpg">
+                        <img src="./feed-3.jpg">
                     </div>
                     <p class="name">Winnie Hale</p>
                 </div>
                 <div class="story">
                     <div class="profile-photo">
-                        <img src="/Projects/P7final/frontend/public/images/profile-3.jpg">
+                        <img src="./feed-5.jpg">
                     </div>
                     <p class="name">Daniel Bale</p>
                 </div>
                 <div class="story">
                     <div class="profile-photo">
-                        <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                        <img src="./feed-6.jpg">
                     </div>
                     <p class="name">Jane Doe</p>
                 </div>
                 <div class="story">
                     <div class="profile-photo">
-                        <img src="/Projects/P7final/frontend/public/images/profile-2.jpg">
+                        <img src="./feed-7.jpg">
                     </div>
                     <p class="name">Tina White</p>
                 </div>
@@ -249,7 +244,7 @@ onMounted(() => {
             <!------------------- END OF STORIES -------------------->
             <form class="create-post">
                 <div class="profile-photo">
-                    <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                    <img src="./profile-6.jpg">
                 </div>
                 <input type="text" placeholder="What's on your mind, Diana?" id="create-post">
                 <input type="submit" value="Post" class="btn btn-primary">
@@ -264,21 +259,23 @@ onMounted(() => {
 		
 		<section class="greeting">
 			<h2 class="title">
-				What's up, <input type="text" id="name" placeholder="Name here" v-model="name">
+				What's on your mind, <input type="text" id="name" placeholder="Name here" v-model="name">
 			</h2>
 		</section>
 
 		<section class="create-todo">
-			<h3>CREATE A TODO</h3>
+			
 
 			<form id="new-todo-form" @submit.prevent="addTodo">
-				<h4>What's on your todo list?</h4>
+			
 				<input 
 					type="text" 
 					name="content" 
 					id="content" 
-					placeholder="e.g. make a video"
+					placeholder="Share your thoughts, emotions and travel plans"
 					v-model="input_content" />
+                     
+  <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
 				
 				<h4>Pick a category</h4>
 				<div class="options">
@@ -307,12 +304,12 @@ onMounted(() => {
 
 				</div>
 
-				<input type="submit" value="Add todo" />
+				<input type="submit" value="Add post" />
 			</form>
 		</section>
 
 		<section class="todo-list">
-			<h3>TODO LIST</h3>
+		
 			<div class="list" id="todo-list">
 
 				<div v-for="todo in todos_asc" :class="`todo-item ${todo.done && 'done'}`">
@@ -337,11 +334,16 @@ onMounted(() => {
 			</div>
 		</section>
 
-	</main>
+	</main> 
+    <br><br>
+    <br><br>
+    <br><br>
+
+
                     <div class="head">
                         <div class="user">
                             <div class="profile-photo">
-                                <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                                <img src="./profile-6.jpg">
                             </div>
                             <div class="ingo">
                                 <h3>Lana Rose</h3>
@@ -369,9 +371,9 @@ onMounted(() => {
                     </div>
 
                     <div class="liked-by">
-                        <span><img src="./feed-1.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-2.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-3.jpg"></span>
+                        <span> <img src="./profile-1.jpg"></span>
+                        <span> <img src="./profile-2.jpg"></span>
+                        <span> <img src="./profile-3.jpg"></span>
                         <p>Liked by <b>Ernest Achiever</b> and <b>2,323 others</b></p>
                     </div>
 
@@ -386,7 +388,7 @@ onMounted(() => {
                     <div class="head">
                         <div class="user">
                             <div class="profile-photo">
-                                <img src="./feed-1.jpg">
+                                <img src="./feed-2.jpg">
                             </div>
                             <div class="ingo">
                                 <h3>Benjamin Dwayne</h3>
@@ -399,7 +401,7 @@ onMounted(() => {
                     </div>
 
                     <div class="photo">
-                        <img src="/Projects/P7final/frontend/public/images/feed-2.jpg">
+                        <img src="./feed-2.jpg">
                     </div>
 
                     <div class="action-buttons">
@@ -414,9 +416,9 @@ onMounted(() => {
                     </div>
 
                     <div class="liked-by">
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-2.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
+                        <span>   <img src="./profile-1.jpg"></span>
+                        <span> <img src="./profile-2.jpg"></span>
+                        <span> <img src="./profile-3.jpg"></span>
                         <p>Liked by <b>Ernest Achiever</b> and <b>2,323 others</b></p>
                     </div>
 
@@ -431,7 +433,7 @@ onMounted(() => {
                     <div class="head">
                         <div class="user">
                             <div class="profile-photo">
-                                <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                                <img src="./profile-2.jpg">
                             </div>
                             <div class="ingo">
                                 <h3>Malik Berry</h3>
@@ -444,7 +446,7 @@ onMounted(() => {
                     </div>
 
                     <div class="photo">
-                        <img src="/Projects/P7final/frontend/public/images/feed-3.jpg">
+                        <img src="./feed-3.jpg">
                     </div>
 
                     <div class="action-buttons">
@@ -459,9 +461,9 @@ onMounted(() => {
                     </div>
 
                     <div class="liked-by">
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
+                        <span>   <img src="./profile-1.jpg"></span>
+                        <span>   <img src="./profile-2.jpg"></span>
+                        <span>   <img src="./profile-3.jpg"></span>
                         <p>Liked by <b>Ernest Achiever</b> and <b>2,323 others</b></p>
                     </div>
 
@@ -477,7 +479,7 @@ onMounted(() => {
                     <div class="head">
                         <div class="user">
                             <div class="profile-photo">
-                                <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                                <img src="./profile-3.jpg">
                             </div>
                             <div class="ingo">
                                 <h3>Lana Rose</h3>
@@ -490,7 +492,7 @@ onMounted(() => {
                     </div>
 
                     <div class="photo">
-                        <img src="/frontend/public/images/feed-1.jpg">
+                        <img src="./feed-4.jpg">
                     </div>
 
                     <div class="action-buttons">
@@ -505,9 +507,9 @@ onMounted(() => {
                     </div>
 
                     <div class="liked-by">
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
+                        <span>   <img src="./profile-3.jpg"></span>
+                        <span>   <img src="./profile-2.jpg"></span>
+                        <span>   <img src="./profile-1.jpg"></span>
                         <p>Liked by <b>Ernest Achiever</b> and <b>2,323 others</b></p>
                     </div>
 
@@ -522,7 +524,7 @@ onMounted(() => {
                     <div class="head">
                         <div class="user">
                             <div class="profile-photo">
-                                <img src="/Projects/P7final/frontend/public/images/profile-2.jpg">
+                                <img src="./profile-6.jpg">
                             </div>
                             <div class="ingo">
                                 <h3>Chris Brown</h3>
@@ -535,7 +537,7 @@ onMounted(() => {
                     </div>
 
                     <div class="photo">
-                        <img src="/Projects/P7final/frontend/public/images/feed-2.jpg">
+                        <img src="./feed-5.jpg">
                     </div>
 
                     <div class="action-buttons">
@@ -550,9 +552,9 @@ onMounted(() => {
                     </div>
 
                     <div class="liked-by">
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-2.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
+                        <span>   <img src="./profile-3.jpg"></span>
+                        <span>   <img src="./profile-2.jpg"></span>
+                        <span>   <img src="./profile-1.jpg"></span>
                         <p>Liked by <b>Ernest Achiever</b> and <b>2,323 others</b></p>
                     </div>
 
@@ -567,7 +569,7 @@ onMounted(() => {
                     <div class="head">
                         <div class="user">
                             <div class="profile-photo">
-                                <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                                <img src="./profile-5.jpg">
                             </div>
                             <div class="ingo">
                                 <h3>Michael David</h3>
@@ -580,7 +582,7 @@ onMounted(() => {
                     </div>
 
                     <div class="photo">
-                        <img src="/Projects/P7final/frontend/public/images/feed-1.jpg">
+                        <img src="./feed-6.jpg">
                     </div>
 
                     <div class="action-buttons">
@@ -595,9 +597,9 @@ onMounted(() => {
                     </div>
 
                     <div class="liked-by">
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
+                        <span>   <img src="./profile-3.jpg"></span>
+                        <span>   <img src="./profile-2.jpg"></span>
+                        <span>   <img src="./profile-1.jpg"></span>
                         <p>Liked by <b>Ernest Achiever</b> and <b>2,323 others</b></p>
                     </div>
 
@@ -612,7 +614,7 @@ onMounted(() => {
                     <div class="head">
                         <div class="user">
                             <div class="profile-photo">
-                                <img src="/Projects/P7final/frontend/public/images/profile-3.jpg">
+                                <img src="./profile-5.jpg">
                             </div>
                             <div class="ingo">
                                 <h3>Ama Jackie</h3>
@@ -625,7 +627,7 @@ onMounted(() => {
                     </div>
 
                     <div class="photo">
-                        <img src="/Projects/P7final/frontend/public/images/feed-3.jpg">
+                        <img src="./feed-7.jpg">
                     </div>
 
                     <div class="action-buttons">
@@ -640,9 +642,9 @@ onMounted(() => {
                     </div>
 
                     <div class="liked-by">
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
-                        <span><img src="/Projects/P7final/frontend/public/images/profile-1.jpg"></span>
+                        <span>   <img src="./profile-3.jpg"></span>
+                        <span>   <img src="./profile-2.jpg"></span>
+                        <span>   <img src="./profile-1.jpg"></span>
                         <p>Liked by <b>Ernest Achiever</b> and <b>2,323 others</b></p>
                     </div>
 
@@ -679,7 +681,7 @@ onMounted(() => {
                 <!----- MESSAGE ----->
                 <div class="message">
                     <div class="profile-photo">
-                        <img src="/Projects/P7final/frontend/public/images/profile-2.jpg">
+                        <img src="./profile-2.jpg">
                     </div>
                     <div class="message-body">
                         <h5>Edem Quist</h5>
@@ -689,7 +691,7 @@ onMounted(() => {
                 <!----- MESSAGE ----->
                 <div class="message">
                     <div class="profile-photo">
-                        <img src="/Projects/P7final/frontend/public/images/profile-3.jpg">
+                        <img src="./profile-3.jpg">
                         <div class="active"></div>
                     </div>
                     <div class="message-body">
@@ -700,7 +702,7 @@ onMounted(() => {
                 <!----- MESSAGE ----->
                 <div class="message">
                     <div class="profile-photo">
-                        <img src="/Projects/P7final/frontend/public/images/profile-2.jpg">
+                        <img src="./profile-1.jpg">
                     </div>
                     <div class="message-body">
                         <h5>Jane Doe</h5>
@@ -710,7 +712,7 @@ onMounted(() => {
                 <!----- MESSAGE ----->
                 <div class="message">
                     <div class="profile-photo">
-                        <img src="/Projects/P7final/frontend/public/images/profile-2.jpg">
+                        <img src="./profile-1.jpg">
                     </div>
                     <div class="message-body">
                         <h5>Daniella Jackson</h5>
@@ -720,7 +722,7 @@ onMounted(() => {
                 <!----- MESSAGE ----->
                 <div class="message">
                     <div class="profile-photo">
-                        <img src="/Projects/P7final/frontend/public/images/profile-2.jpg">
+                        <img src="./profile-2.jpg">
                     </div>
                     <div class="message-body">
                         <h5>Juliet Makarey</h5>
@@ -730,7 +732,7 @@ onMounted(() => {
                 <!----- MESSAGE ----->
                 <div class="message">
                     <div class="profile-photo">
-                        <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                        <img src="./profile-3.jpg">
                         <div class="active"></div>
                     </div>
                     <div class="message-body">
@@ -749,7 +751,7 @@ onMounted(() => {
                 <div class="request">
                     <div class="info">
                         <div class="profile-photo">
-                            <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                            <img src="./profile-1.jpg">
                         </div>
                         <div>
                             <h5>Hajia Bintu</h5>
@@ -765,7 +767,7 @@ onMounted(() => {
                 <div class="request">
                     <div class="info">
                         <div class="profile-photo">
-                            <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                            <img src="./profile-2.jpg">
                         </div>
                         <div>
                             <h5>Jackline Mensah</h5>
@@ -781,7 +783,7 @@ onMounted(() => {
                 <div class="request">
                     <div class="info">
                         <div class="profile-photo">
-                            <img src="/Projects/P7final/frontend/public/images/profile-1.jpg">
+                            <img src="./profile-2.jpg">
                         </div>
                         <div>
                             <h5>Jennifer Lawrence</h5>
@@ -856,12 +858,10 @@ onMounted(() => {
 </div>
 </div>
 
-
-
-  
 </body>
-</html>
-	
-</template>
 
+</html>
+
+</template>
+<script></script>
 <style src="../main.css"></style>
