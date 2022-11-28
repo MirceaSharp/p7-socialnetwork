@@ -2,8 +2,8 @@
 import db from "../config/database.js";
 
 //get all products
-export const getProducts = (result) => {
-  db.query("SELECT * FROM users", (err, results) => {
+export const getPosts = (result) => {
+  db.query("SELECT * FROM posts", (err, results) => {
     if (err) {
       console.log(err);
       result(err, null);
@@ -30,7 +30,7 @@ export const getProductById = (id, result) => {
 };
 
 //insert product to databased
-export const insertProduct = (data, result) => {
+export const insertUser = (data, result) => {
   db.query("INSERT INTO users SET ?", [data], (err, results) => {
     if (err) {
       console.log(err);
@@ -40,6 +40,19 @@ export const insertProduct = (data, result) => {
     }
   });
 };
+export const insertPost = (data, result) => {
+  db.query("INSERT INTO posts SET ?", [data], (err, results) => {
+    if (err) {
+      console.log(err);
+      result(err, null);
+    } else {
+      result(null, results);
+    }
+  });
+};
+
+
+
 
 // Update Product to Database
 export const updateProductById = (data, id, result) => {

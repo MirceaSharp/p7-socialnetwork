@@ -36,31 +36,41 @@ Password
     
     <script>
     import axios from "axios";
-
+    var bcrypt = require("bcryptjs");
 
 
     export default {
+        
         data(){
         return{
            Username:"",
             Password:"",
         };
     },
-    methods: {
+    
+    methods: {           
+        
         async saveUser(){
+            const hash = await bcrypt.hash(this.Password,10)
+            
             try{
-            await axios.post("http://localhost:5000/products", {
+            await axios.post("http://localhost:5000/products",
+             {               
           username: this.Username,
-           password: this.Password,
+           password: hash,
         });
+      
 (this.Username=""), (this.Password="");
 this.$router.push("/posts");
     }catch(err){
         console.log(err);
     }
     },
+    
 },
     
     };
-    
+   
+ 
     </script>
+   

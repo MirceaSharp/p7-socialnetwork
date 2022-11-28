@@ -1,4 +1,4 @@
-// SIDEBAR 
+
 const menuItems = document.querySelectorAll('.menu-item');
 
 // MESSAGES
@@ -153,19 +153,19 @@ colorPalette.forEach(color => {
         changeActiveColorClass();
 
         if(color.classList.contains('color-1')){
-            primaryHue = 252;
+            primary = 252;
         } else if(color.classList.contains('color-2')){
-            primaryHue = 52;
+            primary = 52;
         } else if(color.classList.contains('color-3')){
-            primaryHue = 352;
+            primary = 352;
         } else if(color.classList.contains('color-4')){
-            primaryHue = 152;
+            primary= 152;
         } else if(color.classList.contains('color-5')){
-            primaryHue = 202;
+            primary = 202;
         }
         color.classList.add('active');
 
-        root.style.setProperty('--primary-color-hue', primaryHue);
+        root.style.setProperty('--primary-color-hue', primary);
     })
 })
 
@@ -223,6 +223,11 @@ Bg3.addEventListener('click', () => {
     Bg2.classList.remove('active');
     changeBG();
 })
+
+
+// END
+
+
 
 
 // END

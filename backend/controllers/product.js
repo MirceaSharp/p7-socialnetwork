@@ -1,15 +1,16 @@
 //import functions from Product model
 import {
-  getProducts,
+  getPosts,
   getProductById,
-  insertProduct,
+  insertUser,
+  insertPost,
   updateProductById,
   deleteProductById,
-} from "../models/productModel.js";
+} from "../models/objectModel.js";
 
 //get all products
-export const showProducts = (req, res) => {
-  getProducts((err, results) => {
+export const showPosts = (req, res) => {
+  getPosts((err, results) => {
     if (err) {
       res.send(err);
     } else {
@@ -30,9 +31,19 @@ export const showProductById = (req, res) => {
 };
 
 //create new product
-export const createProduct = (req, res) => {
+export const createUser = (req, res) => {
   const data = req.body;
-  insertProduct(data, (err, results) => {
+  insertUser(data, (err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
+export const createPost = (req, res) => {
+  const data = req.body;
+  insertPost(data, (err, results) => {
     if (err) {
       res.send(err);
     } else {

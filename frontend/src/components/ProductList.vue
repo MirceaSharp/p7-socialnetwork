@@ -1,29 +1,8 @@
 <template>
     <div>
-        <router-link :to="{name:'Create'}" class="button is-succes mt-5">Add new</router-link>
+        <router-link :to="{name:'Create'}" class="button is-succes mt-5">Sign Up</router-link>
     
-    <table class="table is-striped is-bordered mt-2 is-fullwidth">
-        <thread>
-            <tr>
-                <th>Product Name</th>
-            </tr>
-        </thread>
-        <tbody>
-            <tr v-for="item in items" :key="item.idUsers">
-                <td>
-                   {{item.Username}}
-                </td>
-                <td>
-                    {{item.Password}}
-                </td>
-                <td class="has-text-centered">
-                    <router-link 
-                    :to="{name:'Edit', params: {id:item.idUsers} }"
-                    class="button is-info is-small">Edit</router-link>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
 </div>
 </template>
 
@@ -51,6 +30,7 @@ methods:{
 }
 
 };
+
 </script>
 
 <style>

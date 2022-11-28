@@ -1,60 +1,3 @@
-
-
-
-<script setup>
-
-import { ref, onMounted, computed, watch } from 'vue'
-
-const todos = ref([])
-const name = ref('')
-
-const input_content = ref('')
-const image = Image
-const input_category = ref(null)
-
-const todos_asc = computed(() => todos.value.sort((a,b) =>{
-	return a.createdAt - b.createdAt
-}))
-
-watch(name, (newVal) => {
-	localStorage.setItem('name', newVal)
-})
-
-watch(todos, (newVal) => {
-	localStorage.setItem('todos', JSON.stringify(newVal))
-}, {
-	deep: true
-})
-
-const addTodo = () => {
-	if (input_content.value.trim() === '' || input_category.value === null) {
-		return
-	}
-	
-	todos.value.push({
-		content: input_content.value,
-		category: input_category.value,
-        image: image.value,
-		done: false,
-		editable: false,
-		createdAt: new Date().getTime()
-	})
-	
-}
-
-const removeTodo = (todo) => {
-	todos.value = todos.value.filter((t) => t !== todo)
-}
-
-onMounted(() => {
-	name.value = localStorage.getItem('name') || ''
-	todos.value = JSON.parse(localStorage.getItem('todos')) || []
-})
-</script>
-
-
-
-
 <template>
 	
 <!DOCTYPE html>
@@ -63,7 +6,7 @@ onMounted(() => {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nokoSocial - Responsive Social Media Website Using HTML, CSS & JavaScript</title>
+    <title>Groupomania</title>
     <!-- ICONSCOUT CDN -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
     <!-- STYLESHEET -->
@@ -75,15 +18,19 @@ onMounted(() => {
     
   <nav>
     <div class="container">
-        <h2 class="log">
-            nokoSocial
-        </h2>
+       
+       
+            <img src="./icon-left-font-monochrome-black.png" style="width:220px;height:60px">
+    
+      
+        
         <div class="search-bar">
+           
             <i class="uil uil-search"></i>
             <input type="search" placeholder="Search for creators, inspirations, and projects">
         </div>
         <div class="create">
-            <label class="btn btn-primary" for="create-post">Create</label>
+           
             <div class="profile-photo">
                 <img src="./profile-6.jpg">
             </div>
@@ -242,104 +189,74 @@ onMounted(() => {
                 </div>
             </div>
             <!------------------- END OF STORIES -------------------->
-            <form class="create-post">
-                <div class="profile-photo">
-                    <img src="./profile-6.jpg">
-                </div>
-                <input type="text" placeholder="What's on your mind, Diana?" id="create-post">
-                <input type="submit" value="Post" class="btn btn-primary">
-            </form>
+           
 
             <!------------------- FEEDS --------------------->
             <div class="feeds">
                
                 <!------------------- FEED 1 --------------------->
                 <div class="feed">
-					<main class="app">
-		
-		<section class="greeting">
-			<h2 class="title">
-				What's on your mind, <input type="text" id="name" placeholder="Name here" v-model="name">
-			</h2>
-		</section>
+                    <div>
+                        <br><br>
+    <br><br>
+    <br><br>
+        <div class="field">
+            <label class="label">
+    Post Title
+            </label>
+            <div class="control">
+                <input
+                class="input"
+                type="text"
+                placeholder="Title"
+                v-model="PostTitle"
+                />
+            </div>
+        </div>
 
-		<section class="create-todo">
-			
-
-			<form id="new-todo-form" @submit.prevent="addTodo">
-			
-				<input 
-					type="text" 
-					name="content" 
-					id="content" 
-					placeholder="Share your thoughts, emotions and travel plans"
-					v-model="input_content" />
-                     
-  <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
-				
-				<h4>Pick a category</h4>
-				<div class="options">
-
-					<label>
-						<input 
-							type="radio" 
-							name="category" 
-							id="category1" 
-							value="business"
-							v-model="input_category" />
-						<span class="bubble business"></span>
-						<div>Business</div>
-					</label>
-
-					<label>
-						<input 
-							type="radio" 
-							name="category" 
-							id="category2" 
-							value="personal"
-							v-model="input_category" />
-						<span class="bubble personal"></span>
-						<div>Personal</div>
-					</label>
-
-				</div>
-
-				<input type="submit" value="Add post" />
-			</form>
-		</section>
-
-		<section class="todo-list">
-		
-			<div class="list" id="todo-list">
-
-				<div v-for="todo in todos_asc" :class="`todo-item ${todo.done && 'done'}`">
-					<label>
-						<input type="checkbox" v-model="todo.done" />
-						<span :class="`bubble ${
-							todo.category == 'business' 
-								? 'business' 
-								: 'personal'
-						}`"></span>
-					</label>
-
-					<div class="todo-content">
-						<input type="text" v-model="todo.content" />
-					</div>
-
-					<div class="actions">
-						<button class="delete" @click="removeTodo(todo)">Delete</button>
-					</div>
-				</div>
-
-			</div>
-		</section>
-
-	</main> 
+        <div class=field>
+            <label class="label">
+Post Content
+            </label>
+            <div class="control" >
+                <input 
+                class="input"
+                type="text"
+                placeholder="Content"
+                v-model="PostContent"
+                />
+            </div>
+        </div>
+        <div class="control">
+<button class="button is-success" @click="saveUser2">SignUp</button>
+        </div>
+    </div>
     <br><br>
     <br><br>
     <br><br>
-
-
+    <table class="table is-striped is-bordered mt-2 is-fullwidth">
+        <thread>
+          
+        </thread>
+        <tbody>
+            <tr v-for="item in items" :key="item.Post_id">
+                <td>
+                   {{item.PostTitle}}
+                </td>
+                <td style="word-break: break-all">
+                    {{item.PostContent}}
+                </td>
+                <td class="has-text-centered">
+                    <router-link 
+                    :to="{name:'Edit', params: {id:item.Post_id} }"
+                    class="button is-info is-small">Edit</router-link>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <br><br>
+    <br><br>
                     <div class="head">
                         <div class="user">
                             <div class="profile-photo">
@@ -382,6 +299,7 @@ onMounted(() => {
                     </div>
                     <div class="comments text-muted">View all 277 comments</div>
                 </div>
+                <br><br><br><br>
                 <!---------------- END OF FEED ----------------->
                 <!------------------- FEED 2 --------------------->
                 <div class="feed">
@@ -427,6 +345,7 @@ onMounted(() => {
                     </div>
                     <div class="comments text-muted">View all 3,473 comments</div>
                 </div>
+                <br><br><br><br>
                 <!---------------- END OF FEED ----------------->
                 <!------------------- FEED 3 --------------------->
                 <div class="feed">
@@ -472,6 +391,7 @@ onMounted(() => {
                     </div>
                     <div class="comments text-muted">View all 277 comments</div>
                 </div>
+                <br><br><br><br>
                 <!---------------- END OF FEED ----------------->
                 <!------------------- FEED 4 --------------------->
                 <div class="feed">
@@ -518,6 +438,7 @@ onMounted(() => {
                     </div>
                     <div class="comments text-muted">View all 277 comments</div>
                 </div>
+                <br><br><br><br>
                 <!---------------- END OF FEED ----------------->
                 <!------------------- FEED 5 --------------------->
                 <div class="feed">
@@ -563,6 +484,7 @@ onMounted(() => {
                     </div>
                     <div class="comments text-muted">View all 277 comments</div>
                 </div>
+                <br><br><br><br>
                 <!---------------- END OF FEED ----------------->
                 <!------------------- FEED 6 --------------------->
                 <div class="feed">
@@ -608,6 +530,7 @@ onMounted(() => {
                     </div>
                     <div class="comments text-muted">View all 277 comments</div>
                 </div>
+                <br><br><br><br>
                 <!---------------- END OF FEED ----------------->
                 <!------------------- FEED 7 --------------------->
                 <div class="feed">
@@ -653,7 +576,7 @@ onMounted(() => {
                     </div>
                     <div class="comments text-muted">View all 277 comments</div>
                 </div>
-                <!---------------- END OF FEED ----------------->
+                <br><br><br><br>                <!---------------- END OF FEED ----------------->
             </div>
             <!------------------------------- END OF FEEDS ------------------------------------>
         </div>
@@ -760,7 +683,7 @@ onMounted(() => {
                     </div>
                     <div class="action">
                         <button class="btn btn-primary">Accept</button>
-                        <button class="btn">Accept</button>
+                        <button class="btn">Refuse</button>
                     </div>
                 </div>
                 <!----- REQUEST 2----->
@@ -776,7 +699,7 @@ onMounted(() => {
                     </div>
                     <div class="action">
                         <button class="btn btn-primary">Accept</button>
-                        <button class="btn">Accept</button>
+                        <button class="btn">Refuse</button>
                     </div>
                 </div>
                 <!----- REQUEST 3----->
@@ -792,7 +715,7 @@ onMounted(() => {
                     </div>
                     <div class="action">
                         <button class="btn btn-primary">Accept</button>
-                        <button class="btn">Accept</button>
+                        <button class="btn">Refuse</button>
                     </div>
                 </div>
             </div>
@@ -859,9 +782,60 @@ onMounted(() => {
 </div>
 
 </body>
-
 </html>
-
 </template>
-<script></script>
+
+
 <style src="../main.css"></style>
+<script>
+
+import axios from "axios"
+
+export default {
+    data(){
+    return{   items: [],
+      PostTitle:"",
+       PostContent:"",
+    };
+},
+created(){
+    this.getProducts()},
+
+methods: {
+    async saveUser2(){
+        try{
+        await axios.post("http://localhost:5000/postsdisplay", 
+        {
+            PostTitle: this.PostTitle,
+     PostContent: this.PostContent,
+    });
+  
+(this.PostTitle=""), (this.PostContent="");
+this.$router.push("/posts");
+window.location.reload();
+}catch(err){
+    console.log(err);
+}
+},
+
+async getProducts(){
+    try{
+        const response= await axios.get("http://localhost:5000/products");
+        this.items=response.data
+        console.log(this.items);
+    }catch(err){
+        console.log(err);
+    }
+}
+
+
+},
+
+};
+
+
+
+    
+
+
+</script>

@@ -229,3 +229,8 @@ input:checked ~ .bubble::after {
 	text-decoration: line-through;
 	color: var(--grey);
 }
+.textarea{
+	
+	height:100%;
+	word-break: break-all;
+  }

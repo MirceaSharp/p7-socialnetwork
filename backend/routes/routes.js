@@ -3,9 +3,10 @@ import express from "express";
 
 //import functions from controller
 import {
-  showProducts,
+  showPosts,
   showProductById,
-  createProduct,
+  createUser,
+  createPost,
   updateProduct,
   deleteProduct,
 } from "../controllers/product.js";
@@ -14,13 +15,14 @@ import {
 const router = express.Router();
 
 //get all product
-router.get("/products", showProducts);
+router.get("/products", showPosts);
 
 //get single product
 router.get("/products/:id", showProductById);
 
 // Create New Product
-router.post("/products", createProduct);
+router.post("/products", createUser);
+router.post("/postsdisplay", createPost);
 
 // Update Product
 router.put("/products/:id", updateProduct);

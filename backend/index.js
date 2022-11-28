@@ -6,14 +6,20 @@ import cors from "cors";
 
 //import routes
 import Router from "./routes/routes.js";
-import db from "./config/database.js";
+
+
+
+
+
+import bodyparser from "body-parser";
+
 
 //init express
 const app = express();
 
 //use express json
 app.use(express.json());
-
+app.use(bodyparser.json());
 //use cors
 app.use(cors());
 
@@ -25,13 +31,3 @@ app.listen(5000, () => {
   console.log("Server running successfully");
 });
 
-
-app.post('/create', (req,res) =>{
-  db.query(
-    "INSERT INTO users (Username, Password) VALUES (?,?)",
-     [Username, Password],
-     (err,result) =>{
-    console.log(err);
-  }
-  )
-});
