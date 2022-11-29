@@ -1,18 +1,18 @@
 <template>
     <div>
     
-      <ProductList/>
+      <Login/>
     </div>
   </template>
   
   <script>
   // @ is an alias to /src
-  import ProductList from '@/components/ProductList.vue'
+  import Login from '@/components/Login.vue'
   
   export default {
     name: 'Index',
     components: {
- ProductList
+ Login
     }
   }
   </script>

@@ -1,7 +1,7 @@
-//import connection
+
 import db from "../config/database.js";
 
-//get all products
+
 export const getPosts = (result) => {
   db.query("SELECT * FROM posts", (err, results) => {
     if (err) {
@@ -13,23 +13,22 @@ export const getPosts = (result) => {
   });
 };
 
-//get single product
-export const getProductById = (id, result) => {
-  db.query(
-    "SELECT * FROM PRODUCT WHERE product_id = ?",
-    [id],
-    (err, results) => {
-      if (err) {
-        console.log(err);
-        result(err, null);
-      } else {
-        result(null, results[0]);
-      }
+
+
+
+export const getUsers = (result) => {
+  db.query("SELECT * FROM users", (err, results) => {
+    if (err) {
+      console.log(err);
+      result(err, null);
+    } else {
+      result(null, results);
     }
-  );
+  });
 };
 
-//insert product to databased
+
+
 export const insertUser = (data, result) => {
   db.query("INSERT INTO users SET ?", [data], (err, results) => {
     if (err) {
@@ -57,8 +56,8 @@ export const insertPost = (data, result) => {
 // Update Product to Database
 export const updateProductById = (data, id, result) => {
   db.query(
-    "UPDATE product SET product_name = ?, product_price = ? WHERE product_id = ?",
-    [data.product_name, data.product_price, id],
+    "UPDATE product SET PostTitle = ?, PostContent = ? WHERE Post_id = ?",
+    [data.PostTitle, data.PostContent, id],
     (err, results) => {
       if (err) {
         console.log(err);
@@ -70,14 +69,20 @@ export const updateProductById = (data, id, result) => {
   );
 };
 
-// Delete Product to Database
-export const deleteProductById = (id, result) => {
-  db.query("DELETE FROM product WHERE product_id = ?", [id], (err, results) => {
-    if (err) {
-      console.log(err);
-      result(err, null);
-    } else {
-      result(null, results);
+
+
+
+export const getUserByUsername = (username, callback) => {
+  db.query(
+    "SELECT * FROM users WHERE username = ?",
+    [username],
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        callback(err, null);
+      } else {
+       callback(null, results[0]);
+      }
     }
-  });
+  );
 };

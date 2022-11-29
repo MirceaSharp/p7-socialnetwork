@@ -54,7 +54,7 @@ Password
             const hash = await bcrypt.hash(this.Password,10)
             
             try{
-            await axios.post("http://localhost:5000/products",
+            await axios.post("http://localhost:5000/users",
              {               
           username: this.Username,
            password: hash,

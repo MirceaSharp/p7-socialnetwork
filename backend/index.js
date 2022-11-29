@@ -7,10 +7,6 @@ import cors from "cors";
 //import routes
 import Router from "./routes/routes.js";
 
-
-
-
-
 import bodyparser from "body-parser";
 
 
@@ -21,7 +17,10 @@ const app = express();
 app.use(express.json());
 app.use(bodyparser.json());
 //use cors
-app.use(cors());
+
+app.use(cors({
+  origin: '*'
+}));
 
 //use router
 app.use(Router);

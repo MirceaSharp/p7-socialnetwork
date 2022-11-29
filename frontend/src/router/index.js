@@ -4,6 +4,7 @@ import Create from "../views/Create.vue"
 import Posts from "../views/PostsPage.vue"
 import Edit from "../views/Edit.vue"
 
+
 const routes = [
  
 {

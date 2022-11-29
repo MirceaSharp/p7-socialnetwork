@@ -228,7 +228,7 @@ Post Content
             </div>
         </div>
         <div class="control">
-<button class="button is-success" @click="saveUser2">SignUp</button>
+<button class="button is-success" @click="savePost">Post</button>
         </div>
     </div>
     <br><br>
@@ -247,9 +247,7 @@ Post Content
                     {{item.PostContent}}
                 </td>
                 <td class="has-text-centered">
-                    <router-link 
-                    :to="{name:'Edit', params: {id:item.Post_id} }"
-                    class="button is-info is-small">Edit</router-link>
+                   
                 </td>
             </tr>
         </tbody>
@@ -799,12 +797,12 @@ export default {
     };
 },
 created(){
-    this.getProducts()},
+    this.getPosts()},
 
 methods: {
-    async saveUser2(){
+    async savePost(){
         try{
-        await axios.post("http://localhost:5000/postsdisplay", 
+        await axios.post("http://localhost:5000/posts", 
         {
             PostTitle: this.PostTitle,
      PostContent: this.PostContent,
@@ -818,9 +816,9 @@ window.location.reload();
 }
 },
 
-async getProducts(){
+async getPosts(){
     try{
-        const response= await axios.get("http://localhost:5000/products");
+        const response= await axios.get("http://localhost:5000/posts");
         this.items=response.data
         console.log(this.items);
     }catch(err){
@@ -832,10 +830,5 @@ async getProducts(){
 },
 
 };
-
-
-
-    
-
 
 </script>
